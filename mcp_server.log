@@ -1,0 +1,4 @@
+2026-01-18 15:17:51,966 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-01-18 15:17:59,190 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-01-18 15:17:59,191 - root - INFO - Adding -2 and 18
+2026-01-18 15:17:59,191 - root - INFO - Result: 16

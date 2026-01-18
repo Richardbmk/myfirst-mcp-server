@@ -1,5 +1,6 @@
 from mcp.server.fastmcp import FastMCP
 import time
+import logging
 
 mcp = FastMCP("add_integers")
 
@@ -8,6 +9,14 @@ class MCPError(Exception):
         self.code = code
         self.message = message
         super().__init__(f"Error {code}: {message}")
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    filename="./mcp_server.log", # Log file to store server logs
+    filemode="a", # Use 'a' to append to the log file or 'w' to overwrite
+    force=True
+)
 
 @mcp.tool()
 def add(a: int, b: int) -> int:
@@ -21,7 +30,10 @@ def add(a: int, b: int) -> int:
     Returns:
         int: The sum of the two integers.
     """
-    return a + b
+    logging.info(f"Adding {a} and {b}")
+    result = a + b
+    logging.info(f"Result: {result}")
+    return result
 
 @mcp.tool()
 def divide(a: float, b: float) -> float:
